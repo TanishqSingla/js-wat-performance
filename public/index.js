@@ -1,3 +1,5 @@
+const timeTaken = document.getElementById("time-taken");
+
 function shuffle(array) {
   let currentIndex = array.length - 1;
   do {
@@ -23,5 +25,10 @@ function JSBubbleSort(arr) {
 }
 
 function start() {
-  const array = shuffle([...Array(100).keys()]);
+  const array = shuffle([...Array(4000).keys()]);
+
+  let startTime = new Date().getTime();
+  JSBubbleSort(array);
+  console.log(new Date().getTime() - startTime);
+  timeTaken.innerHTML = `${new Date().getTime() - startTime}`;
 }
