@@ -6,7 +6,8 @@
     "test": "node tests"
   },
   "dependencies": {
-    "@assemblyscript/loader": "^0.19.7"
+    "@assemblyscript/loader": "^0.19.7",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "assemblyscript": "^0.19.7"
