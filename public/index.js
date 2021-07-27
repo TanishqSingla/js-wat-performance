@@ -43,7 +43,7 @@ async function ASBubbleSort(array) {
 }
 
 function start() {
-  const shuffledArray = shuffle([...Array(4000).keys()]);
+  const shuffledArray = shuffle([...Array(10000).keys()]);
 
   JSBubbleSort(shuffledArray);
 
