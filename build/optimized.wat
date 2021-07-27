@@ -8,7 +8,6 @@
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $none_=>_i32 (func (result i32)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
- (global $assembly/index/Int32Array_ID i32 (i32.const 3))
  (global $~lib/rt/itcms/total (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/threshold (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/state (mut i32) (i32.const 0))
@@ -40,7 +39,6 @@
  (data (i32.const 1576) "\01\00\00\00(\00\00\00O\00b\00j\00e\00c\00t\00 \00i\00s\00 \00n\00o\00t\00 \00p\00i\00n\00n\00e\00d")
  (data (i32.const 1632) "\04\00\00\00 \00\00\00\00\00\00\00 ")
  (data (i32.const 1660) "\01\t\00\00\02")
- (export "Int32Array_ID" (global $assembly/index/Int32Array_ID))
  (export "__new" (func $~lib/rt/itcms/__new))
  (export "__pin" (func $~lib/rt/itcms/__pin))
  (export "__unpin" (func $~lib/rt/itcms/__unpin))
@@ -2081,4 +2079,5 @@
   global.set $~lib/memory/__stack_pointer
   local.get $0
  )
+ ;; custom section "as-bind_bindings", size 213, contents: "{\"typeIds\":{\"~lib/typedarray/Int32Array\":{\"id\":3,\"byteSize\":12}},\"importedFunctions\":{},\"exportedFunctions\":{\"ASbubbleSort\":{\"returnType\":\"~lib/typedarray/Int32Array\",\"parameters\":[\"~lib/typedarray/Int32Array\"]}}}"
 )

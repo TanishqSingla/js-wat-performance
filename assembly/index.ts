@@ -1,4 +1,5 @@
 // The entry file of your WebAssembly module.
+
 export function ASbubbleSort(arr: Int32Array): Int32Array {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length - i - 1; j++) {
@@ -12,5 +13,3 @@ export function ASbubbleSort(arr: Int32Array): Int32Array {
 
   return arr;
 }
-
-export const Int32Array_ID = idof<Int32Array>();

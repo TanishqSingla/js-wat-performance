@@ -1,8 +1,10 @@
 const timeTaken = document.getElementById("time-taken");
+const timeTakenAS = document.getElementById("time-taken-as");
+
+import * as AsBind from "https://unpkg.com/as-bind@0.8.0/dist/as-bind.esm.js";
 
 // memory for assemblyscript
 var memory = null;
-const wasm = fetch("optimized.wasm");
 
 function shuffle(array) {
   let currentIndex = array.length - 1;
@@ -32,21 +34,12 @@ function JSBubbleSort(arr) {
   timeTaken.innerHTML = `${new Date().getTime() - startTime}`;
 }
 
-function ASBubbleSort(array) {
-  (async () => {
-    const { instance } = await loader.instantiate(wasm);
-
-    console.log(instance);
-
-    const { ASbubbleSort, Int32Array_ID } = instance.exports;
-    const { __newArray } = instance.exports;
-    const { __getArray } = instance.exports;
-
-    const importArrPtr = __newArray(Int32Array_ID, array);
-    const exportedArrayPtr = ASbubbleSort(importArrPtr);
-    const values = __getArray(exportedArrayPtr);
-    console.log(values);
-  })();
+async function ASBubbleSort(array) {
+  const asBindInstance = await AsBind.instantiate(fetch("optimized.wasm"));
+  let startTime = new Date().getTime();
+  const sortedArray = asBindInstance.exports.ASbubbleSort(array);
+  timeTakenAS.innerHTML = `${new Date().getTime() - startTime}`;
+  console.log(sortedArray);
 }
 
 function start() {
